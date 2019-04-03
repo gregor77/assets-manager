@@ -32,3 +32,7 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### 참조
+* [free icon and image](https://icons8.com/icons/set/computer)
