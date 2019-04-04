@@ -28,7 +28,7 @@ export default {
   computed: {
     thumbnail() {
       const { type } = this.asset;
-      if (type === 'mac') {
+      if (type === 'iMac') {
         return macImage;
       }
       return helpImage;

@@ -1,5 +1,13 @@
 <template>
     <div class="Assets">
+      <md-autocomplete
+        v-model="selectedProject"
+        :md-options="projects"
+        md-layout="box"
+        md-dense>
+        <label>Select Project</label>
+      </md-autocomplete>
+
       <div v-for="(asset, index) in assets" :key="index">
         <AssetCardView v-bind:asset="asset" />
       </div>
@@ -15,27 +23,34 @@ export default {
   },
   data() {
     return {
+      selectedProject: '',
+      projects: [
+        '2SPRINT',
+        'MSS',
+        'Cello',
+        'e-store',
+      ],
       assets: [
         {
           id: 1,
-          type: 'mac',
+          type: 'iMac',
           name: 'Sydney',
-          project: '2Sprint',
-          serialNo: '123',
+          project: '2SPRINT',
+          serialNo: 'C02SJ04QGQ17',
         },
         {
           id: 2,
-          type: 'mac',
+          type: 'iMac',
           name: 'Ankara',
-          project: '2Sprint',
-          serialNo: '456',
+          project: '2SPRINT',
+          serialNo: 'C02R807EGQ17',
         },
         {
           id: 3,
-          type: 'mac',
+          type: 'iMac',
           name: 'Houston',
-          project: '2Sprint',
-          serialNo: '789',
+          project: '2SPRINT',
+          serialNo: 'C02SJ041GQ17',
         },
       ],
     };
