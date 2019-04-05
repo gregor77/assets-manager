@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
   .card {
-    margin: 10px;
+    margin-top: 10px;
   }
   .md-card-media {
     margin-right: 10px;
