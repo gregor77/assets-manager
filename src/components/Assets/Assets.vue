@@ -8,8 +8,12 @@
         <label>Select Project</label>
       </md-autocomplete>
 
-      <div v-for="(asset, index) in assets" :key="index">
-        <AssetCardView v-bind:asset="asset" />
+      <div class="md-layout md-gutter md-alignment-center">
+        <div v-for="(asset, index) in assets"
+             :key="index"
+              class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
+          <AssetCardView v-bind:asset="asset" />
+        </div>
       </div>
     </div>
 </template>

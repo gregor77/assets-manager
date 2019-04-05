@@ -38,11 +38,8 @@ export default {
 </script>
 
 <style lang="scss">
-  .md-card {
-    margin: 30px;
-  }
   .card__thumbnail{
-    margin: 0 30px;
+    margin: 5px 10px;
   }
   .card__id {
     display: none;
