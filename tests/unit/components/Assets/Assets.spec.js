@@ -7,7 +7,9 @@ describe('@/components/Assets/Assets', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallowMount(Assets, {});
+    wrapper = shallowMount(Assets, {
+      stubs: ['md-autocomplete'],
+    });
   });
 
   it('should render AssetCardView with props(id, name, serialNo, project)', () => {

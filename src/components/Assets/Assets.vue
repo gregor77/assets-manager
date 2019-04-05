@@ -32,7 +32,7 @@ export default {
         '2SPRINT',
         'MSS',
         'Cello',
-        'e-store',
+        'E-STORE',
       ],
       assets: [
         {
@@ -41,20 +41,26 @@ export default {
           name: 'Sydney',
           project: '2SPRINT',
           serialNo: 'C02SJ04QGQ17',
+          checkDate: new Date(2019, 3, 5),
+          user: 'Rhyno',
         },
         {
           id: 2,
           type: 'iMac',
           name: 'Ankara',
-          project: '2SPRINT',
+          project: 'MSS',
           serialNo: 'C02R807EGQ17',
+          checkDate: new Date(2019, 2, 5),
+          user: 'Dann',
         },
         {
           id: 3,
           type: 'iMac',
           name: 'Houston',
-          project: '2SPRINT',
+          project: 'E-STORE',
           serialNo: 'C02SJ041GQ17',
+          checkDate: new Date(2019, 1, 20),
+          user: 'Iaan',
         },
       ],
     };
