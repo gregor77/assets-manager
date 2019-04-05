@@ -1,5 +1,5 @@
 <template>
-    <div class="AssetCardView">
+    <div class="card">
       <md-card md-with-hover v-bind:class="{ 'card--not-checked': !isRecentlyChecked }" >
         <md-card-header>
           <md-card-media>
@@ -58,6 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .card {
+    margin: 10px;
+  }
   .md-card-media {
     margin-right: 10px;
   }
