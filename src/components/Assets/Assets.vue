@@ -69,7 +69,7 @@ export default {
   methods: {
     applySelectedId(assetId, isChecked) {
       if (isChecked) {
-          this.selectedIds.push(assetId);
+        this.selectedIds.push(assetId);
       } else {
         const index = this.selectedIds.findIndex(id => id === assetId);
         if (index === -1) {
