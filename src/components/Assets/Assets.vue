@@ -12,7 +12,7 @@
         <div v-for="(asset, index) in assets"
              :key="index"
               class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
-          <AssetCardView v-bind:asset="asset" />
+          <AssetCardView :asset="asset" @mergeSelectedId="applySelectedId" />
         </div>
       </div>
     </div>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       selectedProject: '',
+      selectedIds: [],
       projects: [
         '2SPRINT',
         'MSS',
@@ -64,6 +65,19 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    applySelectedId(assetId, isChecked) {
+      if (isChecked) {
+          this.selectedIds.push(assetId);
+      } else {
+        const index = this.selectedIds.findIndex(id => id === assetId);
+        if (index === -1) {
+          return;
+        }
+        this.selectedIds.splice(index, 1);
+      }
+    },
   },
 };
 </script>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueMaterial from 'vue-material';
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import { subMonths } from 'date-fns';
 
 import AssetCardView from '@/components/AssetCardView/AssetCardView.vue';
@@ -69,6 +69,43 @@ describe('@/components/AssetCardView/AssetCardView', () => {
 
         expect(wrapper.find('.card--not-checked').exists()).toBeTruthy();
         expect(wrapper.findAll('.card__check-date > span').at(0).text()).toEqual('Recently not checked');
+      });
+    });
+  });
+
+  describe('event', () => {
+    describe('checkbox', () => {
+      const spyEmit = jest.fn();
+      let mountedWrapper;
+
+      beforeEach(() => {
+        mountedWrapper = mount(AssetCardView, {
+          propsData: {
+            asset: {
+              id: '1',
+              checkDate: new Date(),
+            },
+          },
+        });
+        mountedWrapper.vm.$emit = spyEmit;
+      });
+
+      afterEach(() => {
+        mountedWrapper.vm.$emit.mockClear();
+      });
+
+      it('should emit parent listener "selectedAssetId", when isChecked is true', () => {
+        mountedWrapper.find('input[type="checkbox"]').trigger('click');
+
+        expect(spyEmit).toBeCalledWith('mergeSelectedId', '1', true);
+      });
+
+      it('should not emit parent listener "selectedAssetId", when isChecked is false', () => {
+        mountedWrapper.setData({ isChecked: true });
+
+        mountedWrapper.find('input[type="checkbox"]').trigger('click');
+
+        expect(spyEmit).toBeCalledWith('mergeSelectedId', '1', false);
       });
     });
   });

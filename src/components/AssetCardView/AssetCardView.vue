@@ -2,6 +2,11 @@
     <div class="card">
       <md-card md-with-hover v-bind:class="{ 'card--not-checked': !isRecentlyChecked }" >
         <md-card-header>
+          <md-checkbox
+            class="md-checkbox"
+            v-model="isChecked"
+            :click="selectId(asset.id)">
+          </md-checkbox>
           <md-card-media>
             <img class="card__thumbnail" :src="thumbnail" alt="assetType">
           </md-card-media>
@@ -34,6 +39,11 @@ export default {
   props: {
     asset: Object,
   },
+  data() {
+    return {
+      isChecked: false,
+    };
+  },
   computed: {
     thumbnail() {
       const { type } = this.asset;
@@ -54,6 +64,11 @@ export default {
       return format(checkDate, 'YYYY-MM-DD');
     },
   },
+  methods: {
+    selectId(selectedAssetId) {
+      this.$emit('mergeSelectedId', selectedAssetId, this.isChecked);
+    },
+  },
 };
 </script>
 
@@ -70,6 +85,9 @@ export default {
   }
   .md-card-content {
     padding: 0;
+  }
+  .md-checkbox {
+
   }
   .card--not-checked {
     background: yellow;
